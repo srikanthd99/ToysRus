@@ -1,1 +1,1 @@
-# ToysRus
+Personal repository for DevOps learnings
