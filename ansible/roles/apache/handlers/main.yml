@@ -3,3 +3,6 @@
     name: "{{package}}"
     enabled: yes
     state: started
+
+- name: reload firewalld
+  shell: filrewall-cmd --reload
