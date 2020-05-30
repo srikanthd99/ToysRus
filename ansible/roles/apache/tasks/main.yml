@@ -1,6 +1,6 @@
 - name: Create group
-    group:
-      name: "{{group}}"
+  group:
+    name: "{{group}}"
 
 - name: Create the user 
   user:
