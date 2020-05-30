@@ -1,0 +1,5 @@
+- name: start httpd
+  systemd:
+    name: "{{package}}"
+    enabled: yes
+    state: started

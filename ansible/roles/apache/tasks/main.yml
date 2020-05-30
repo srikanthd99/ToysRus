@@ -13,6 +13,8 @@
   yum:
     name: "{{package}}"
     state: latest
+  notify:
+    - start httpd
 
 - name: Copy httpd file
   copy:
