@@ -7,6 +7,10 @@
     user: srikanth
     group: unix
   tasks:
+  - name: Create group
+    group:
+      name: "{{group}}"
+
   - name: Create the user 
     user:
       name: "{{user}}"
