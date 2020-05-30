@@ -15,8 +15,8 @@
     yum:
       name: "{{package}}"
       state: latest
-      
+
   - name: Copy httpd file
     copy:
-    src: /etc/passwd
-    dest: /etc/password.jumpserver 
+      src: /etc/passwd
+      dest: /etc/password.jumpserver 
