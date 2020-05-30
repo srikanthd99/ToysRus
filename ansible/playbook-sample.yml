@@ -11,12 +11,12 @@
       uid: 1040
       group: "{{group}}"
 
-	- name: Install package
-	  yum:
+  - name: Install package
+    yum:
       name: "{{package}}"
       state: latest
 		  
-	- name: Copy httpd file
+  - name: Copy httpd file
     copy:
-      src: /etc/passwd
-      dest: /etc/password.jumpserver 
+    src: /etc/passwd
+    dest: /etc/password.jumpserver 
