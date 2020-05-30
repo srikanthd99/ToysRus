@@ -15,7 +15,7 @@
     yum:
       name: "{{package}}"
       state: latest
-		  
+      
   - name: Copy httpd file
     copy:
     src: /etc/passwd
