@@ -1,0 +1,15 @@
+ansible_connection: ssh
+ansible_ssh_user: vagrant
+ansible_become: true
+
+[webservers]
+node1.example.com
+node2.example.com
+
+[dbservers]
+server5.example.com
+server6.example.com
+
+[appservers]
+server3.example.com
+server4.example.com
