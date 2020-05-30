@@ -10,7 +10,7 @@
       comment: Srikanth D
       uid: 1040
       group: "{{group}}"
-	 
+
 	- name: Install package
 	  yum:
       name: "{{package}}"
