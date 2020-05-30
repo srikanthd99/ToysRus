@@ -1,0 +1,11 @@
+- hosts: webservers
+  vars:
+    ansible_connection: ssh
+    ansible_ssh_user: vagrant
+    ansible_become: true
+    package: httpd
+    user: srikanth
+    group: unix
+  tasks:
+  - import_role:
+      name: apache
