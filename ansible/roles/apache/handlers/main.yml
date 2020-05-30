@@ -5,4 +5,4 @@
     state: started
 
 - name: reload firewalld
-  shell: filrewall-cmd --reload
+  shell: firewall-cmd --reload
