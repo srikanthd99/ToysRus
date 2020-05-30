@@ -17,6 +17,9 @@
   notify:
     - reload firewalld
 
+- name: Flush handlers
+  meta: flush_handlers
+
 - name: Install package
   yum:
     name: "{{package}}"
