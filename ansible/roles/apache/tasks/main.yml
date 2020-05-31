@@ -1,17 +1,17 @@
 - name: Create group
   group:
-    name: "{{group}}"
+    name: "{{apache.group}}"
 
 - name: Create the user 
   user:
-    name: "{{user}}"
-    comment: Srikanth D
+    name: "{{apache.user}}"
+    comment: "Apache user"
     uid: 1040
-    group: "{{group}}"
+    group: "{{apache.group}}"
 
 - name: Firewall add httpd
   firewalld:
-    service: http
+    service: "{{apache.firewall_service}}"
     permanent: yes
     state: enabled
   notify:
@@ -22,7 +22,7 @@
 
 - name: Install package
   yum:
-    name: "{{package}}"
+    name: "{{apache.package}}"
     state: latest
   notify:
     - start httpd
