@@ -6,3 +6,6 @@
 
 - name: reload firewalld
   shell: firewall-cmd --reload
+
+- name: Executing a Command Using Shell Module 
+  shell: netstat -an > temp.txt

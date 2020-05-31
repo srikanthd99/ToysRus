@@ -3,9 +3,9 @@
     ansible_connection: ssh
     ansible_ssh_user: vagrant
     ansible_become: true
-    package: httpd
-    user: srikanth
-    group: unix
+    package: net-tools
+    user: alex
+    group: linux
   tasks:
   - name: Create group
     group:
@@ -14,8 +14,8 @@
   - name: Create the user 
     user:
       name: "{{user}}"
-      comment: Srikanth D
-      uid: 1040
+      comment: Alex
+      uid: 1055
       group: "{{group}}"
 
   - name: Install package
@@ -23,7 +23,27 @@
       name: "{{package}}"
       state: latest
 
-  - name: Copy httpd file
+  - name: Copy group file
     copy:
-      src: /etc/passwd
-      dest: /etc/password.jumpserver
+      src: /etc/group
+      dest: /tmp/group.back
+
+  - name: Create a directory 
+    file:
+      path: /tmp/linux
+      state: directory
+      mode: '0755'
+
+  - name: Firewall add httpd
+    firewalld:
+      service: http
+      permanent: yes
+      state: enabled
+    notify:
+      - reload firewalld
+
+  - name: Flush handlers
+    meta: flush_handlers
+
+  - name: Executing a Command Using Shell Module 
+    shell: netstat -an > temp.txt
