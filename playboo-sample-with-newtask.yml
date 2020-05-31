@@ -1,0 +1,29 @@
+- hosts: webservers
+  vars:
+    ansible_connection: ssh
+    ansible_ssh_user: vagrant
+    ansible_become: true
+    package: httpd
+    user: srikanth
+    group: unix
+  tasks:
+  - name: Create group
+    group:
+      name: "{{group}}"
+
+  - name: Create the user 
+    user:
+      name: "{{user}}"
+      comment: Srikanth D
+      uid: 1040
+      group: "{{group}}"
+
+  - name: Install package
+    yum:
+      name: "{{package}}"
+      state: latest
+
+  - name: Copy httpd file
+    copy:
+      src: /etc/passwd
+      dest: /etc/password.jumpserver
