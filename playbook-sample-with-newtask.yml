@@ -39,6 +39,10 @@
       service: http
       permanent: yes
       state: enabled
+
+  - name: reload firewalld
+    shell: firewall-cmd --reload
+
     notify:
       - reload firewalld
 
