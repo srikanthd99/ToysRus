@@ -1,6 +1,6 @@
 - name: start httpd
   systemd:
-    name: "{{package}}"
+    name: "{{apache.package}}"
     enabled: yes
     state: started
 
