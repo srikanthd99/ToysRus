@@ -9,6 +9,12 @@
     uid: 1040
     group: "{{apache.group}}"
 
+- name: start firewalld
+  systemd:
+    name: firewalld
+    enabled: yes
+    state: started
+
 - name: Firewall add httpd
   firewalld:
     service: "{{apache.firewall_service}}"
