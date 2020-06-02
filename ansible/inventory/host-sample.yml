@@ -1,4 +1,10 @@
 webservers:
   hosts:
     node1.example.com:
+      ip: 192.168.50.20
+    node2.example.com:
+      ip: 192.168.50.30
+
+dbservers:
+  hosts:
     node2.example.com:

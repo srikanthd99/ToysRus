@@ -1,4 +1,28 @@
 - hosts: webservers
+  serial:
+  - 1
   tasks:
   - import_role:
       name: apache
+  tags: 
+    - installApache
+
+- hosts: dbservers
+  tasks:
+  - name: Create group
+    group:
+      name: linux
+
+  - name: Create the user 
+    user:
+      name: srikanth
+      comment: Srikanth D
+      uid: 1050
+      group: linux
+
+  - name: Install package
+    yum:
+      name: ansible
+      state: latest
+
+  tags: installDB
