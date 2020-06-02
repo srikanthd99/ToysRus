@@ -4,7 +4,7 @@
   tasks:
   - import_role:
       name: apache
-    when: installApache == 'true'
+    when: installApache == 'True'
   - debug:
       var: "{{installApache}}"
   tags: 
