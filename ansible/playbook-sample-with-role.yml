@@ -5,7 +5,7 @@
   - import_role:
       name: apache
   tags: 
-    - installApache
+    - install-apache
 
 - hosts: dbservers
   tasks:
@@ -22,7 +22,7 @@
 
   - name: Install package
     yum:
-      name: ansible
+      name: net-tools
       state: latest
 
-  tags: installDB
+  tags: install-database
