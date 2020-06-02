@@ -5,12 +5,12 @@
   - import_role:
       name: apache
     when: installApache == 'True'
+  - debug:
+      var: "{{installApache}}"
   tags: 
     - install-apache
     - all
-
-  - debug:
-      var: "{{installApache}}"
+  
 
 - hosts: dbservers
   tasks:
