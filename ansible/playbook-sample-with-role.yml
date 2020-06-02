@@ -4,8 +4,10 @@
   tasks:
   - import_role:
       name: apache
+  when: installApache == 'True'
   tags: 
     - install-apache
+    - all
 
 - hosts: dbservers
   tasks:
@@ -25,4 +27,6 @@
       name: net-tools
       state: latest
 
-  tags: install-database
+  tags: 
+    - install-database
+    - all
