@@ -9,8 +9,8 @@
     - install-apache
     - all
 
-- debug:
-    var: installApache
+debug:
+  var: installApache
 
 - hosts: dbservers
   tasks:
