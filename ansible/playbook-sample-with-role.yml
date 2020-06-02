@@ -9,6 +9,9 @@
     - install-apache
     - all
 
+- debug:
+    var: installApache
+
 - hosts: dbservers
   tasks:
   - name: Create group
