@@ -6,8 +6,6 @@
   tasks:
   - name: Starting Mysql Installation Tasks.
      include_role:
-     name: mysql
-     vars:
      mysql_version: 8.0
      mysql_version_repo: mysql{{ mysql_version|string |replace(".", "") }}-community
      when: mysql_proc_status.failed == true or mysql_force_installation == true
