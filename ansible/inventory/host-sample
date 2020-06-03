@@ -9,3 +9,6 @@ server6.example.com
 [appservers]
 server3.example.com
 server4.example.com
+
+[mysql]
+node1.example.com

@@ -2,6 +2,10 @@ ansible_connection: ssh
 ansible_ssh_user: vagrant
 ansible_become: true
 
+[mysql]
+node1.example.com
+
+
 installApache: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           63633630323630303463376133613639386362313966366638333631393833356663366334633833
