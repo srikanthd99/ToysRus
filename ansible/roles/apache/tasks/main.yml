@@ -9,6 +9,12 @@
     uid: 1040
     group: "{{apache.group}}"
 
+- name: Install Oracle MySQL repo for RedHat Family.
+  yum:
+    name: "{{ redhat_mysql_repo }}"
+    state: present
+    when: ansible_os_family == "RedHat" and 'mysql' in group_names   
+
 - name: Start firewalld
   systemd:
     name: firewalld

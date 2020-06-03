@@ -1,3 +1,19 @@
+- hosts: mysql
+  vars:
+    ansible_connection: ssh
+    ansible_ssh_user: vagrant
+    ansible_become: true
+  tasks:
+  - name: Starting Mysql Installation Tasks.
+     include_role:
+     name: mysql
+     vars:
+     mysql_version: 8.0
+     mysql_version_repo: mysql{{ mysql_version|string |replace(".", "") }}-community
+     when: mysql_proc_status.failed == true or mysql_force_installation == true
+  tags:
+    - install-mysql
+     
 - hosts: webservers
   vars:
     ansible_connection: ssh
@@ -47,3 +63,4 @@
 
   - name: Executing a Command Using Shell Module 
     shell: netstat -an > temp.txt
+
