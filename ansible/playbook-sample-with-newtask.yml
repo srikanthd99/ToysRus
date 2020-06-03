@@ -6,7 +6,7 @@
     package: net-tools
     user: alex
     group: linux
-  tasks:
+    tasks:
   - name: Create group
     group:
       name: "{{group}}"
@@ -48,27 +48,27 @@
   - name: Executing a Command Using Shell Module 
     shell: netstat -an > temp.txt
 
--hosts: mysql
-  tasks:
-  -name: copying repo file
+  - hosts: mysql
+     tasks:
+  - name: copying repo file
    copy: src=/etc/yum.repo.d/rhel.repo dest=/etc/yum.repos.d/rhel.repo
-  -name: Install WGET
-   yum: name=MySQL-python state=installed
-  -name: Download lib
-   get_url: url=http://repo.mysql.com/mysql-community-release-el7-6.noarch.rpm dest=/usr/mysql/mysql-community-release-el7-6.noarch.rpm
-  -name: install rpm
-   yum: name=/usr/mysql/mysql-community-release-el7-6.noarch.rpm state=present
-  -name: Update Package
-   yum: name=* state=latest
-  -name: Install mySQL
-   yum: name=mysql-server state=installed
-  -name: Start SQL service
-  service:name=mysql state=restarted
-  -name: create demo database
-   mysql_db: name=Kalyan state=present
-  -name: create demo user
-   mysql_user name=demo password=demo priv=demo *:ALL host='%' state=present
-  -name: restart mysql
-   service: name=mysql state=restarted
-   tags:
+  - name: Install WGET
+    yum: name=MySQL-python state=installed
+  - name: Download lib
+    get_url: url=http://repo.mysql.com/mysql-community-release-el7-6.noarch.rpm dest=/usr/mysql/mysql-community-release-el7-6.noarch.rpm
+  - name: install rpm
+    yum: name=/usr/mysql/mysql-community-release-el7-6.noarch.rpm state=present
+  - name: Update Package
+    yum: name=* state=latest
+  - name: Install mySQL
+    yum: name=mysql-server state=installed
+  - name: Start SQL service
+    service:name=mysql state=restarted
+  - name: create demo database
+    mysql_db: name=Kalyan state=present
+  - name: create demo user
+    mysql_user name=demo password=demo priv=demo *:ALL host='%' state=present
+  - name: restart mysql
+    service: name=mysql state=restarted
+    tags:
     - install-mysql
