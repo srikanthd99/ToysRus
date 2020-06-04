@@ -6,7 +6,7 @@ mysql:
   service: mysqld
   package: mysql-server
 
-installMysql: True
+installMysql: 'True'
 
 
 installApache: !vault |
