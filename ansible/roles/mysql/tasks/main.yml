@@ -27,3 +27,23 @@
 - name: print root password 
   debug:
     var: password.stdout_lines
+
+- name: Set root user password
+  mysql_user:
+    name: root
+    host: "{{ inventory_hostname }}"
+    password: "{{ mysql.password }}"
+    check_implicit_admin: yes
+    login_user: root
+    login_password: "{{ password.stdout_lines }}"
+    state: present
+
+- name: Create new mysql user
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysql.password }}"
+    name: "srikanth"
+    password: "srikanth"
+    priv: '*.*:ALL,GRANT'
+    state: present
+    host: "{{ inventory_hostname }}"
