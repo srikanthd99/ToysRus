@@ -6,6 +6,8 @@ mysql:
   service: mysqld
   package: mysql-server
 
+installMysql: True
+
 
 installApache: !vault |
           $ANSIBLE_VAULT;1.1;AES256
