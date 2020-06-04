@@ -35,7 +35,7 @@
     password: "{{ mysql.password }}"
     check_implicit_admin: yes
     login_user: root
-    login_password: "{{ password.stdout_lines }}"
+    login_password: "{{password.stdout}}"
     state: present
 
 - name: Create new mysql user
