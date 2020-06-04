@@ -5,7 +5,7 @@ ansible_become: true
 mysql:
   service: mysqld
   package: mysql-server
-  password: 'D@ng€r0u$'
+  password: Dangerous
 
 installMysql: 'True'
 
