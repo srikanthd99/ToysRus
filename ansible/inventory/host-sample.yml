@@ -7,6 +7,5 @@ webservers:
 
 dbservers:
   hosts:
-    node2.example.com:
-      
+    node2.example.com:     
       

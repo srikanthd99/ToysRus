@@ -2,8 +2,9 @@ ansible_connection: ssh
 ansible_ssh_user: vagrant
 ansible_become: true
 
-[mysql]
-node1.example.com
+mysql:
+  service: mysqld
+  package: mysql-server
 
 
 installApache: !vault |

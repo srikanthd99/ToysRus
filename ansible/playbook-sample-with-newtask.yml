@@ -51,7 +51,9 @@
   - hosts: mysql
      tasks:
   - name: copying repo file
-   copy: src=/etc/yum.repo.d/rhel.repo dest=/etc/yum.repos.d/rhel.repo
+    copy:
+      src: /etc/yum.repo.d/rhel.repo
+      dest: /etc/yum.repos.d/rhel.repo
   - name: Install WGET
     yum: name=MySQL-python state=installed
   - name: Download lib

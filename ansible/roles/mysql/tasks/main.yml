@@ -1,0 +1,33 @@
+wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+https://dev.mysql.com/downloads/file/?id=484922
+
+
+- name: Download mysql communiry repository package 
+  get_url:
+    url: https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+    dest: /etc/mysql57-community-release-el7-9.noarch.rpm
+    mode: '0440'
+
+- name: Install myql repo package
+  yum:
+    name: /etc/mysql57-community-release-el7-9.noarch.rpm
+    state: present
+
+- name: Install myql-server  package
+  yum:
+    name: "{{mysql.package}}"
+    state: present
+
+- name: Start mysql service
+  systemd:
+    name: "{{mysql.service}}"
+    enabled: yes
+    state: started
+
+- name: Read root password
+  shell: cat /var/log/mysqld.log | grep 'temporary password' | awk {'print $11'}
+  register: password
+
+- name: print root password 
+  debug:
+    var: password.stdout_lines
